@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DCT.Utils\DCT.Utils.csproj" />
-  </ItemGroup>
-
 </Project>
