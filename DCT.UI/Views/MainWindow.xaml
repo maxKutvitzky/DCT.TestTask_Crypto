@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DCT.UI.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="400" ResizeMode="NoResize">
+        Title="Currencies" Height="500" Width="400" ResizeMode="NoResize">
     <Window.DataContext>
         <local:MainWindowVM/>
     </Window.DataContext>
@@ -28,7 +28,9 @@
             <ItemsControl  ItemsSource="{Binding CoinModels}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate DataType="local:CoinViewModel">
-                        <Button Style="{DynamicResource ButtonCoinItemStyle}">
+                        <Button Style="{DynamicResource ButtonCoinItemStyle}" 
+                                Command="{Binding OpenCoinCommand}" 
+                                CommandParameter="{Binding Id}">
                             <Button.Content>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -45,12 +47,9 @@
                                 </Grid>
                             </Button.Content>
                         </Button>
-
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </Grid>
-
-
     </Grid>
 </Window>

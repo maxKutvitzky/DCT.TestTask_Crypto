@@ -7,9 +7,15 @@ using System.Threading.Tasks;
 
 namespace DCT.UI.Models
 {
+    /// <summary>
+    /// Class that represents model for main window
+    /// </summary>
     public class MainWindowModel
     {
         private ApiManager _apiManager = new ApiManager();
+        /// <summary>
+        /// Get top 10 currencies
+        /// </summary>
         public async Task<List<CoinViewModel>> GetTopCoins()
         {
             List<CoinDto> coins = await _apiManager.GetCurrencies(10);
@@ -22,10 +28,12 @@ namespace DCT.UI.Models
 
             return coinModels;
         }
-
-        public async Task<CoinViewModel> SearchCoin(string name)
+        /// <summary>
+        /// Get currency by its id
+        /// </summary>
+        public async Task<CoinViewModel> SearchCoin(string id)
         {
-            CoinDto coin = await _apiManager.GetCurrency(name);
+            CoinDto coin = await _apiManager.GetCurrency(id);
 
             if(coin == null)
             {

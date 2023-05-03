@@ -2,6 +2,9 @@
 
 namespace DCT.UI.Base
 {
+    /// <summary>
+    /// Base class for view models
+    /// </summary>
     public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;

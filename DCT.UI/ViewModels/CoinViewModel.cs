@@ -1,10 +1,20 @@
 ﻿using DCT.UI.Base;
+using DCT.UI.Commands;
+using DCT.UI.Utils;
 
 namespace DCT.UI.ViewModels
 {
+    /// <summary>
+    /// Class that represents view model that used in main window. Top currencies info
+    /// </summary>
     public class CoinViewModel : BaseViewModel
     {
         #region Properties
+        public OpenCoinCommand OpenCoinCommand { get; set; }
+        public CoinViewModel()
+        {
+            OpenCoinCommand = new OpenCoinCommand(OpenCoin);
+        }
         private uint _index;
         public uint Index
         {
@@ -59,5 +69,15 @@ namespace DCT.UI.ViewModels
             }
         }
         #endregion Properties
+
+        #region Private Methods
+        /// <summary>
+        /// Open new currency info window
+        /// </summary>
+        private void OpenCoin(string id)
+        {
+            WindowUtils.OpenCoinWindow(id);
+        }
+        #endregion Private Methods
     }
 }

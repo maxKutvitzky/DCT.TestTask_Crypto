@@ -1,22 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DCT.UI.Commands
 {
-    public class RefreshCommand : ICommand
+    /// <summary>
+    /// Custom command to handle opening a window with currency information
+    /// </summary>
+    public class OpenCoinCommand : ICommand
     {
-        private readonly Action _action;
+        private readonly Action<string> _action;
 
         public event EventHandler? CanExecuteChanged;
 
-        public RefreshCommand(Action action)
+        public OpenCoinCommand(Action<string> action)
         {
             _action = action;
         }
+
         public bool CanExecute(object? parameter)
         {
             return true;
@@ -24,7 +24,7 @@ namespace DCT.UI.Commands
 
         public void Execute(object? parameter)
         {
-            _action.Invoke();
+            _action.Invoke(parameter.ToString());
         }
     }
 }

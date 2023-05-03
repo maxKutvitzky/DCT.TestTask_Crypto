@@ -1,22 +1,18 @@
 ﻿using DCT.UI.Base;
 using DCT.UI.Commands;
 using DCT.UI.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Data;
-using System.Windows.Input;
 
 namespace DCT.UI.ViewModels
 {
+    /// <summary>
+    /// Class that represents view model that used in main window. Currencies top, search of currencies
+    /// </summary>
     public class MainWindowVM : BaseViewModel
     {
         #region Properties
         public SearchCommand SearchCommand { get; set; }
+        
         public ObservableCollection<CoinViewModel> CoinModels { get; set; } = new ObservableCollection<CoinViewModel>();
         
         private MainWindowModel _model;
@@ -55,6 +51,9 @@ namespace DCT.UI.ViewModels
         #endregion Public Methods
 
         #region Private Methods
+        /// <summary>
+        /// Get top 10 currencies and update currencies collection
+        /// </summary>
         private async void GetTopCurrencies()
         {
             CoinModels.Clear();
@@ -65,7 +64,10 @@ namespace DCT.UI.ViewModels
                 CoinModels.Add(coin);
             }
         }
-
+        
+        /// <summary>
+        /// Search currency and update currencies collection
+        /// </summary>
         private async void SearchCurrency()
         {
             CoinModels.Clear();
@@ -79,7 +81,6 @@ namespace DCT.UI.ViewModels
 
             CoinModels.Add(coinViewModel);
         }
-
         #endregion Private Methods
 
     }
